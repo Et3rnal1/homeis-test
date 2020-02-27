@@ -22,6 +22,10 @@ const App = _ => {
         setLoading(false);
     };
 
+    const handleClick = id => {
+        setActive(active !== id ? id : null);
+    };
+
     useEffect(fetchCommunities, []);
 
     return (
@@ -33,7 +37,7 @@ const App = _ => {
                         tags={community.popularTags}
                         key={community.id}
                         active={community.id === active}
-                        onChange={_ => setActive(community.id)}
+                        onChange={_ => handleClick(community.id)}
                     />
                     )
                 )
